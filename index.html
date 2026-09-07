@@ -1,1203 +1,1277 @@
-      <!DOCTYPE html>
+```html
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>VIRK GAMING | Premium Gaming Store</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>MEGAMART — All In One Shopping</title>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@600;700;800;900&display=swap');
-
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
-
+*{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#07080d;
-  --panel:#10121a;
-  --panel2:#151824;
-  --line:rgba(255,255,255,.10);
-  --text:#fff;
-  --muted:#9298a9;
-  --blue:#00c8ff;
-  --purple:#7657ff;
-  --green:#20e39b;
-  --orange:#ff9d35;
-  --danger:#ff5470;
+ --primary:#2874f0;
+ --secondary:#ff9f00;
+ --danger:#ff3b30;
+ --success:#16a34a;
+ --dark:#111827;
+ --muted:#6b7280;
+ --bg:#f3f6fb;
+ --card:#fff;
+ --border:#e5e7eb;
 }
-
-html{
-  scroll-behavior:smooth;
-}
-
 body{
-  background:
-    radial-gradient(circle at 10% 5%,rgba(118,87,255,.18),transparent 25%),
-    radial-gradient(circle at 90% 15%,rgba(0,200,255,.12),transparent 25%),
-    var(--bg);
-  color:var(--text);
-  font-family:Inter,Arial,sans-serif;
-  overflow-x:hidden;
+ font-family:Arial,Helvetica,sans-serif;
+ background:var(--bg);
+ color:#172033;
 }
+button,input,select{font:inherit}
+button{cursor:pointer;border:0}
+a{text-decoration:none;color:inherit}
 
-/* ================= TOP BAR ================= */
-
-.top-strip{
-  height:34px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:linear-gradient(90deg,#5134db,#007fbe,#5134db);
-  font-size:12px;
-  font-weight:700;
-  letter-spacing:.5px;
+/* TOP BAR */
+.top{
+ background:#111827;
+ color:white;
+ padding:8px 5%;
+ display:flex;
+ justify-content:space-between;
+ font-size:13px;
 }
+.top span{margin-right:20px}
 
-/* ================= HEADER ================= */
-
-header{
-  position:sticky;
-  top:0;
-  z-index:1000;
-  background:rgba(7,8,13,.90);
-  backdrop-filter:blur(20px);
-  border-bottom:1px solid var(--line);
+/* HEADER */
+.header{
+ background:var(--primary);
+ color:white;
+ padding:12px 5%;
+ display:flex;
+ align-items:center;
+ gap:22px;
+ position:sticky;
+ top:0;
+ z-index:1000;
+ box-shadow:0 2px 10px #0002;
 }
-
-.header-main{
-  max-width:1400px;
-  margin:auto;
-  min-height:72px;
-  padding:10px 20px;
-  display:flex;
-  align-items:center;
-  gap:25px;
-}
-
 .logo{
-  min-width:190px;
-  font-family:Orbitron;
-  font-size:21px;
-  font-weight:900;
-  letter-spacing:1px;
+ font-size:28px;
+ font-weight:900;
+ letter-spacing:-1px;
+ white-space:nowrap;
+}
+.logo small{
+ display:block;
+ font-size:10px;
+ letter-spacing:2px;
+ color:#ffe500;
+}
+.search{
+ flex:1;
+ max-width:700px;
+ position:relative;
+}
+.search input{
+ width:100%;
+ border:0;
+ outline:0;
+ border-radius:5px;
+ padding:14px 50px 14px 18px;
+}
+.search button{
+ position:absolute;
+ right:0;
+ top:0;
+ height:100%;
+ width:50px;
+ background:white;
+ color:var(--primary);
+}
+.head-actions{
+ display:flex;
+ gap:20px;
+ align-items:center;
+ font-weight:bold;
+ white-space:nowrap;
+}
+.action{position:relative;cursor:pointer}
+.badge{
+ position:absolute;
+ top:-12px;
+ right:-12px;
+ background:#ff3b30;
+ color:white;
+ width:19px;
+ height:19px;
+ border-radius:50%;
+ font-size:11px;
+ display:grid;
+ place-items:center;
 }
 
-.logo span{
-  color:var(--blue);
-  text-shadow:0 0 20px var(--blue);
+/* CATEGORY NAV */
+.nav{
+ background:white;
+ display:flex;
+ gap:28px;
+ padding:14px 5%;
+ overflow-x:auto;
+ white-space:nowrap;
+ border-bottom:1px solid var(--border);
 }
-
-.search-box{
-  flex:1;
-  max-width:700px;
-  height:46px;
-  display:flex;
-  background:#fff;
-  border-radius:9px;
-  overflow:hidden;
+.nav div{
+ font-weight:bold;
+ cursor:pointer;
 }
+.nav div:hover{color:var(--primary)}
 
-.search-box select{
-  border:0;
-  outline:0;
-  padding:0 12px;
-  background:#eee;
-  color:#333;
-}
-
-.search-box input{
-  flex:1;
-  border:0;
-  outline:0;
-  padding:0 15px;
-  font-size:14px;
-}
-
-.search-btn{
-  width:55px;
-  border:0;
-  background:var(--blue);
-  cursor:pointer;
-  font-size:20px;
-}
-
-.header-actions{
-  margin-left:auto;
-  display:flex;
-  align-items:center;
-  gap:10px;
-}
-
-.header-btn{
-  height:45px;
-  min-width:45px;
-  padding:0 13px;
-  border:1px solid var(--line);
-  border-radius:10px;
-  background:rgba(255,255,255,.05);
-  color:#fff;
-  cursor:pointer;
-  transition:.25s;
-}
-
-.header-btn:hover{
-  border-color:var(--blue);
-  transform:translateY(-2px);
-}
-
-.cart-count{
-  display:inline-flex;
-  min-width:19px;
-  height:19px;
-  padding:0 5px;
-  align-items:center;
-  justify-content:center;
-  border-radius:20px;
-  background:var(--danger);
-  font-size:10px;
-  font-weight:800;
-}
-
-/* ================= NAV ================= */
-
-.nav-row{
-  border-top:1px solid rgba(255,255,255,.05);
-}
-
-.nav-inner{
-  max-width:1400px;
-  margin:auto;
-  min-height:45px;
-  padding:0 20px;
-  display:flex;
-  align-items:center;
-  gap:25px;
-  overflow:auto;
-}
-
-.nav-inner a{
-  color:#c5c8d4;
-  text-decoration:none;
-  white-space:nowrap;
-  font-size:13px;
-  font-weight:600;
-}
-
-.nav-inner a:hover{
-  color:var(--blue);
-}
-
-/* ================= HERO ================= */
-
+/* HERO */
 .hero{
-  max-width:1400px;
-  margin:auto;
-  padding:28px 20px 10px;
+ margin:18px 5%;
+ height:330px;
+ border-radius:15px;
+ overflow:hidden;
+ position:relative;
+ background:linear-gradient(120deg,#2874f0,#753cff);
+ color:white;
+ display:flex;
+ align-items:center;
+ padding:45px;
 }
-
-.hero-card{
-  min-height:460px;
-  border:1px solid var(--line);
-  border-radius:24px;
-  overflow:hidden;
-  position:relative;
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  align-items:center;
-  padding:60px;
-  background:
-    radial-gradient(circle at 80% 50%,rgba(0,200,255,.18),transparent 30%),
-    radial-gradient(circle at 70% 30%,rgba(118,87,255,.25),transparent 35%),
-    linear-gradient(135deg,#111321,#090a10);
-  box-shadow:0 30px 80px rgba(0,0,0,.35);
-}
-
-.hero-card:before{
-  content:"";
-  position:absolute;
-  width:500px;
-  height:500px;
-  border-radius:50%;
-  right:-150px;
-  top:-100px;
-  border:1px solid rgba(0,200,255,.15);
-  box-shadow:
-    0 0 100px rgba(0,200,255,.12),
-    inset 0 0 80px rgba(118,87,255,.10);
-}
-
-.hero-content{
-  position:relative;
-  z-index:2;
-}
-
-.hero-label{
-  display:inline-block;
-  padding:8px 13px;
-  border-radius:30px;
-  background:rgba(0,200,255,.08);
-  border:1px solid rgba(0,200,255,.25);
-  color:#b9f5ff;
-  font-size:11px;
-  font-weight:800;
-  letter-spacing:1px;
-  margin-bottom:20px;
-}
-
-.hero h1{
-  font-family:Orbitron;
-  font-size:clamp(42px,5vw,70px);
-  line-height:1.05;
-  letter-spacing:-2px;
-}
-
-.hero h1 span{
-  background:linear-gradient(90deg,#fff,#8d7bff,#00d9ff);
-  -webkit-background-clip:text;
-  color:transparent;
-}
-
-.hero p{
-  max-width:570px;
-  color:var(--muted);
-  line-height:1.8;
-  margin:22px 0;
-  font-size:14px;
-}
-
-.hero-buttons{
-  display:flex;
-  gap:12px;
-  flex-wrap:wrap;
-}
-
+.hero-content{max-width:600px}
+.hero h1{font-size:48px;margin-bottom:15px}
+.hero p{font-size:19px;margin-bottom:25px}
 .btn{
-  border:0;
-  border-radius:10px;
-  padding:14px 21px;
-  color:#fff;
-  font-weight:800;
-  cursor:pointer;
-  transition:.3s;
+ padding:13px 22px;
+ border-radius:7px;
+ background:var(--secondary);
+ color:#111;
+ font-weight:bold;
+}
+.btn.blue{background:var(--primary);color:white}
+.btn.white{background:white;color:var(--primary)}
+.hero-products{
+ position:absolute;
+ right:4%;
+ bottom:-20px;
+ font-size:130px;
+ opacity:.22;
 }
 
-.primary{
-  background:linear-gradient(135deg,var(--purple),var(--blue));
-  box-shadow:0 12px 30px rgba(0,200,255,.18);
-}
-
-.secondary{
-  background:rgba(255,255,255,.06);
-  border:1px solid var(--line);
-}
-
-.btn:hover{
-  transform:translateY(-4px);
-  box-shadow:0 15px 35px rgba(0,200,255,.2);
-}
-
-/* ================= 3D HERO ================= */
-
-.hero-3d{
-  height:390px;
-  position:relative;
-  perspective:1000px;
-}
-
-.cube{
-  position:absolute;
-  width:220px;
-  height:220px;
-  left:50%;
-  top:50%;
-  transform-style:preserve-3d;
-  transform:translate(-50%,-50%) rotateX(-20deg) rotateY(35deg);
-  animation:spin 12s linear infinite;
-}
-
-@keyframes spin{
-  from{
-    transform:translate(-50%,-50%) rotateX(-20deg) rotateY(0deg);
-  }
-  to{
-    transform:translate(-50%,-50%) rotateX(-20deg) rotateY(360deg);
-  }
-}
-
-.face{
-  position:absolute;
-  width:220px;
-  height:220px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  border:1px solid rgba(0,220,255,.4);
-  background:linear-gradient(145deg,rgba(118,87,255,.28),rgba(0,200,255,.08));
-  backdrop-filter:blur(5px);
-  box-shadow:inset 0 0 50px rgba(0,200,255,.08);
-  font-size:60px;
-}
-
-.front{transform:translateZ(110px)}
-.back{transform:rotateY(180deg) translateZ(110px)}
-.right{transform:rotateY(90deg) translateZ(110px)}
-.left{transform:rotateY(-90deg) translateZ(110px)}
-.top{transform:rotateX(90deg) translateZ(110px)}
-.bottom{transform:rotateX(-90deg) translateZ(110px)}
-
-.orbit{
-  position:absolute;
-  width:420px;
-  height:150px;
-  left:50%;
-  top:50%;
-  transform:translate(-50%,-50%) rotateX(65deg);
-  border:1px solid rgba(0,200,255,.4);
-  border-radius:50%;
-  box-shadow:0 0 30px rgba(0,200,255,.12);
-}
-
-.orbit2{
-  transform:translate(-50%,-50%) rotateX(65deg) rotateZ(60deg);
-  border-color:rgba(118,87,255,.35);
-}
-
-/* ================= SECTION ================= */
-
+/* SECTION */
 .section{
-  max-width:1400px;
-  margin:auto;
-  padding:55px 20px 20px;
+ margin:22px 5%;
+ background:white;
+ border-radius:12px;
+ padding:22px;
+ box-shadow:0 1px 4px #00000008;
+}
+.section-head{
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ margin-bottom:20px;
+}
+.section-head h2{font-size:23px}
+.view{color:var(--primary);font-weight:bold}
+
+/* CATEGORIES */
+.categories{
+ display:grid;
+ grid-template-columns:repeat(10,1fr);
+ gap:15px;
+}
+.cat{
+ text-align:center;
+ padding:12px 5px;
+ border-radius:10px;
+ cursor:pointer;
+ transition:.2s;
+}
+.cat:hover{background:#eef5ff;transform:translateY(-3px)}
+.cat-icon{
+ width:65px;
+ height:65px;
+ margin:auto auto 9px;
+ border-radius:50%;
+ background:#f1f5f9;
+ display:grid;
+ place-items:center;
+ font-size:30px;
 }
 
-.section-title{
-  display:flex;
-  align-items:end;
-  justify-content:space-between;
-  gap:15px;
-  margin-bottom:25px;
-}
-
-.section-title h2{
-  font-family:Orbitron;
-  font-size:27px;
-}
-
-.section-title p{
-  color:var(--muted);
-  font-size:12px;
-  margin-top:7px;
-}
-
-/* ================= CATEGORY ================= */
-
-.category-grid{
-  display:grid;
-  grid-template-columns:repeat(5,1fr);
-  gap:15px;
-}
-
-.category-card{
-  min-height:145px;
-  padding:22px;
-  border:1px solid var(--line);
-  border-radius:18px;
-  background:linear-gradient(145deg,rgba(255,255,255,.07),rgba(255,255,255,.025));
-  cursor:pointer;
-  transition:.35s;
-  transform-style:preserve-3d;
-}
-
-.category-card:hover{
-  transform:perspective(800px) rotateX(6deg) rotateY(-6deg) translateY(-7px);
-  border-color:rgba(0,200,255,.4);
-  box-shadow:15px 20px 50px rgba(0,0,0,.4);
-}
-
-.category-icon{
-  font-size:38px;
-  margin-bottom:15px;
-}
-
-.category-card h3{
-  font-size:15px;
-}
-
-.category-card p{
-  color:var(--muted);
-  font-size:11px;
-  margin-top:5px;
-}
-
-/* ================= DEAL ================= */
-
-.deal{
-  border:1px solid rgba(255,157,53,.25);
-  background:
-    radial-gradient(circle at 90% 50%,rgba(255,157,53,.12),transparent 35%),
-    linear-gradient(135deg,#171116,#0e1018);
-  border-radius:20px;
-  padding:28px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:20px;
-}
-
-.deal h2{
-  font-family:Orbitron;
-  font-size:25px;
-}
-
-.deal p{
-  color:var(--muted);
-  font-size:13px;
-  margin-top:7px;
-}
-
-/* ================= FILTER ================= */
-
-.toolbar{
-  display:flex;
-  gap:10px;
-  margin-bottom:25px;
-  flex-wrap:wrap;
-}
-
-.filter-input,
-.filter-select{
-  height:44px;
-  border:1px solid var(--line);
-  background:rgba(255,255,255,.045);
-  color:#fff;
-  border-radius:10px;
-  padding:0 14px;
-  outline:none;
-}
-
-.filter-input{
-  flex:1;
-  min-width:220px;
-}
-
-.filter-select{
-  background:#121520;
-}
-
-/* ================= PRODUCTS ================= */
-
+/* PRODUCT GRID */
 .products{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:18px;
+ display:grid;
+ grid-template-columns:repeat(5,1fr);
+ gap:18px;
 }
-
 .product{
-  border:1px solid var(--line);
-  border-radius:18px;
-  overflow:hidden;
-  background:linear-gradient(145deg,#151824,#0d0f16);
-  transition:.4s;
-  transform-style:preserve-3d;
+ background:white;
+ border:1px solid var(--border);
+ border-radius:10px;
+ overflow:hidden;
+ position:relative;
+ transition:.25s;
 }
-
 .product:hover{
-  transform:perspective(900px) rotateX(4deg) rotateY(-5deg) translateY(-9px);
-  border-color:rgba(0,200,255,.35);
-  box-shadow:15px 25px 55px rgba(0,0,0,.45);
+ transform:translateY(-5px);
+ box-shadow:0 10px 30px #0001;
 }
-
-.product-image{
-  height:220px;
-  position:relative;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  overflow:hidden;
-  background:
-    radial-gradient(circle,rgba(118,87,255,.25),transparent 55%),
-    #090b12;
+.product-img{
+ height:210px;
+ display:grid;
+ place-items:center;
+ background:#f8fafc;
+ font-size:85px;
 }
-
-/* YOUR PRODUCT IMAGE */
-
-.product-image img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  display:block;
+.product-body{padding:14px}
+.product-title{
+ font-weight:bold;
+ line-height:1.4;
+ min-height:42px;
 }
-
-.product-placeholder{
-  width:105px;
-  height:130px;
-  border-radius:17px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:48px;
-  background:linear-gradient(145deg,#30265c,#10121c);
-  box-shadow:
-    12px 18px 30px rgba(0,0,0,.6),
-    inset 2px 2px 10px rgba(255,255,255,.15);
-  transform:rotateY(-18deg) rotateX(7deg);
-}
-
-.product-badge{
-  position:absolute;
-  left:12px;
-  top:12px;
-  padding:6px 9px;
-  border-radius:6px;
-  background:var(--green);
-  color:#03160e;
-  font-size:9px;
-  font-weight:900;
-}
-
-.heart{
-  position:absolute;
-  right:12px;
-  top:12px;
-  width:34px;
-  height:34px;
-  border-radius:50%;
-  border:1px solid var(--line);
-  background:rgba(0,0,0,.45);
-  color:#fff;
-  cursor:pointer;
-}
-
-.product-body{
-  padding:17px;
-}
-
-.product-body h3{
-  font-size:14px;
-  margin-bottom:7px;
-}
-
-.product-desc{
-  color:var(--muted);
-  font-size:11px;
-  line-height:1.6;
-  min-height:35px;
-}
-
 .rating{
-  color:#ffb23e;
-  font-size:11px;
-  margin:10px 0;
+ display:inline-block;
+ background:#15803d;
+ color:white;
+ padding:4px 7px;
+ border-radius:4px;
+ font-size:12px;
+ margin:8px 0;
+}
+.price{font-size:20px;font-weight:bold}
+.old{text-decoration:line-through;color:#888;font-size:13px;margin-left:7px}
+.discount{color:var(--success);font-size:13px;margin-left:7px}
+.wish{
+ position:absolute;
+ right:10px;
+ top:10px;
+ background:white;
+ width:35px;
+ height:35px;
+ border-radius:50%;
+ display:grid;
+ place-items:center;
+ box-shadow:0 2px 8px #0002;
+ font-size:18px;
+ z-index:2;
+}
+.quick{
+ position:absolute;
+ left:10px;
+ top:10px;
+ background:#ffefef;
+ color:#d00;
+ padding:5px 8px;
+ font-size:11px;
+ border-radius:4px;
+ font-weight:bold;
 }
 
-.rating span{
-  color:var(--muted);
-  margin-left:5px;
+/* DEALS */
+.deal{
+ display:grid;
+ grid-template-columns:1fr 4fr;
+ gap:20px;
+}
+.deal-banner{
+ background:linear-gradient(150deg,#111827,#374151);
+ color:white;
+ border-radius:10px;
+ padding:30px;
+ display:flex;
+ flex-direction:column;
+ justify-content:center;
+}
+.deal-banner h2{font-size:30px}
+.countdown{
+ margin:20px 0;
+ display:flex;
+ gap:7px;
+}
+.time{
+ background:#fff;
+ color:#111;
+ border-radius:5px;
+ padding:8px;
+ text-align:center;
+ min-width:45px;
+ font-weight:bold;
 }
 
-.price-line{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  margin-top:13px;
+/* BRANDS */
+.brands{
+ display:grid;
+ grid-template-columns:repeat(6,1fr);
+ gap:15px;
+}
+.brand{
+ height:90px;
+ border:1px solid var(--border);
+ display:grid;
+ place-items:center;
+ border-radius:8px;
+ font-size:21px;
+ font-weight:900;
+ color:#374151;
 }
 
-.price{
-  font-family:Orbitron;
-  font-size:17px;
+/* OFFER CARDS */
+.offers{
+ display:grid;
+ grid-template-columns:repeat(4,1fr);
+ gap:15px;
 }
-
-.old-price{
-  color:#777d8c;
-  font-size:10px;
-  text-decoration:line-through;
-  margin-left:5px;
+.offer{
+ min-height:150px;
+ padding:20px;
+ border-radius:10px;
+ background:linear-gradient(135deg,#e0f2fe,#fef3c7);
 }
+.offer h3{font-size:20px;margin-bottom:8px}
 
-.cart-add{
-  border:0;
-  padding:10px 12px;
-  border-radius:9px;
-  background:linear-gradient(135deg,var(--purple),var(--blue));
-  color:#fff;
-  font-weight:800;
-  cursor:pointer;
-}
-
-/* ================= TRUST ================= */
-
-.trust-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:15px;
-}
-
-.trust-card{
-  padding:25px;
-  border:1px solid var(--line);
-  border-radius:18px;
-  background:rgba(255,255,255,.035);
-}
-
-.trust-icon{
-  font-size:30px;
-  margin-bottom:14px;
-}
-
-.trust-card h3{
-  font-size:14px;
-}
-
-.trust-card p{
-  color:var(--muted);
-  font-size:11px;
-  line-height:1.7;
-  margin-top:7px;
-}
-
-/* ================= FAQ ================= */
-
-.faq{
-  border-top:1px solid var(--line);
-}
-
-.faq-item{
-  border-bottom:1px solid var(--line);
-}
-
-.question{
-  padding:20px 5px;
-  display:flex;
-  justify-content:space-between;
-  cursor:pointer;
-  font-size:14px;
-  font-weight:600;
-}
-
-.answer{
-  max-height:0;
-  overflow:hidden;
-  color:var(--muted);
-  font-size:12px;
-  line-height:1.8;
-  transition:.35s;
-}
-
-.faq-item.open .answer{
-  max-height:150px;
-  padding:0 5px 20px;
-}
-
-/* ================= FOOTER ================= */
-
-footer{
-  margin-top:70px;
-  border-top:1px solid var(--line);
-  background:#05060a;
-  padding:55px 20px 25px;
-}
-
-.footer-inner{
-  max-width:1400px;
-  margin:auto;
-  display:grid;
-  grid-template-columns:2fr 1fr 1fr 1fr;
-  gap:40px;
-}
-
-.footer-brand p{
-  color:var(--muted);
-  font-size:12px;
-  line-height:1.8;
-  max-width:350px;
-  margin-top:12px;
-}
-
-.footer-col h4{
-  margin-bottom:15px;
-  font-size:13px;
-}
-
-.footer-col a{
-  display:block;
-  color:var(--muted);
-  text-decoration:none;
-  font-size:11px;
-  margin:9px 0;
-}
-
-.footer-col a:hover{
-  color:#fff;
-}
-
-.copyright{
-  max-width:1400px;
-  margin:40px auto 0;
-  padding-top:20px;
-  border-top:1px solid var(--line);
-  color:#676c7b;
-  font-size:10px;
-  text-align:center;
-}
-
-/* ================= CART ================= */
-
+/* CART DRAWER */
 .overlay{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.65);
-  z-index:2000;
-  opacity:0;
-  pointer-events:none;
-  transition:.3s;
+ position:fixed;
+ inset:0;
+ background:#0007;
+ z-index:2000;
+ display:none;
 }
-
-.overlay.show{
-  opacity:1;
-  pointer-events:auto;
+.overlay.show{display:block}
+.drawer{
+ position:absolute;
+ right:0;
+ top:0;
+ height:100%;
+ width:min(450px,95%);
+ background:white;
+ padding:20px;
+ overflow:auto;
 }
-
-.cart-panel{
-  position:fixed;
-  top:0;
-  right:-470px;
-  width:440px;
-  max-width:94%;
-  height:100vh;
-  background:#0d0f17;
-  border-left:1px solid var(--line);
-  z-index:3000;
-  padding:25px;
-  transition:.4s;
-  box-shadow:-30px 0 80px rgba(0,0,0,.5);
+.drawer-head{
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ padding-bottom:15px;
+ border-bottom:1px solid var(--border);
 }
-
-.cart-panel.open{
-  right:0;
-}
-
-.cart-head{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding-bottom:20px;
-  border-bottom:1px solid var(--line);
-}
-
-.cart-head h2{
-  font-family:Orbitron;
-  font-size:18px;
-}
-
 .close{
-  width:38px;
-  height:38px;
-  border:1px solid var(--line);
-  border-radius:9px;
-  background:rgba(255,255,255,.05);
-  color:#fff;
-  cursor:pointer;
+ background:#eee;
+ width:35px;
+ height:35px;
+ border-radius:50%;
 }
-
-.cart-list{
-  height:62vh;
-  overflow:auto;
-}
-
 .cart-item{
-  display:flex;
-  gap:12px;
-  padding:16px 0;
-  border-bottom:1px solid var(--line);
+ display:flex;
+ gap:12px;
+ padding:15px 0;
+ border-bottom:1px solid var(--border);
 }
-
-.cart-item-icon{
-  width:55px;
-  height:55px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  border-radius:10px;
-  background:#171a28;
-  font-size:25px;
+.cart-img{
+ width:65px;
+ height:65px;
+ background:#f3f4f6;
+ display:grid;
+ place-items:center;
+ font-size:30px;
+ border-radius:7px;
 }
-
-.cart-item-info{
-  flex:1;
+.qty{
+ display:flex;
+ gap:10px;
+ margin-top:8px;
 }
-
-.cart-item-info h4{
-  font-size:12px;
+.qty button{
+ width:25px;
+ height:25px;
+ border-radius:4px;
+ background:#eee;
 }
-
-.cart-item-info p{
-  color:var(--muted);
-  font-size:11px;
-  margin-top:5px;
+.total{
+ padding:20px 0;
+ font-size:21px;
+ font-weight:bold;
+ display:flex;
+ justify-content:space-between;
 }
+.full{width:100%;margin-top:10px}
 
-.remove{
-  border:0;
-  background:none;
-  color:var(--danger);
-  cursor:pointer;
+/* MODAL */
+.modal-bg{
+ position:fixed;
+ inset:0;
+ background:#0008;
+ z-index:3000;
+ display:none;
+ place-items:center;
+ padding:20px;
 }
-
-.cart-bottom{
-  border-top:1px solid var(--line);
-  padding-top:18px;
-}
-
-.total-line{
-  display:flex;
-  justify-content:space-between;
-  font-family:Orbitron;
-  margin-bottom:15px;
-}
-
-/* ================= MODAL ================= */
-
+.modal-bg.show{display:grid}
 .modal{
-  position:fixed;
-  inset:0;
-  z-index:4000;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:rgba(0,0,0,.75);
-  opacity:0;
-  pointer-events:none;
-  transition:.3s;
-  padding:20px;
+ background:white;
+ width:min(850px,100%);
+ max-height:90vh;
+ overflow:auto;
+ border-radius:15px;
+ padding:25px;
+}
+.modal-head{
+ display:flex;
+ justify-content:space-between;
+ margin-bottom:20px;
+}
+.product-detail{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:30px;
+}
+.detail-image{
+ height:400px;
+ display:grid;
+ place-items:center;
+ background:#f8fafc;
+ font-size:160px;
+ border-radius:10px;
+}
+.detail h1{font-size:30px}
+.detail-price{font-size:30px;font-weight:bold;margin:15px 0}
+.detail-actions{display:flex;gap:10px;margin:20px 0}
+.quantity{
+ display:flex;
+ align-items:center;
+ gap:15px;
+ margin:15px 0;
+}
+.quantity button{
+ width:35px;height:35px;background:#eee;border-radius:5px;
 }
 
-.modal.show{
-  opacity:1;
-  pointer-events:auto;
+/* FILTER */
+.filterbar{
+ display:flex;
+ gap:10px;
+ flex-wrap:wrap;
+ margin-bottom:20px;
+}
+.filterbar select,.filterbar input{
+ padding:10px;
+ border:1px solid var(--border);
+ border-radius:6px;
+ background:white;
 }
 
-.modal-box{
-  width:850px;
-  max-width:100%;
-  max-height:90vh;
-  overflow:auto;
-  border:1px solid var(--line);
-  border-radius:22px;
-  background:#0e1018;
-  padding:25px;
+/* FOOTER */
+footer{
+ background:#172033;
+ color:#dbe3ef;
+ margin-top:30px;
+ padding:45px 5% 20px;
+}
+.footer-grid{
+ display:grid;
+ grid-template-columns:repeat(5,1fr);
+ gap:30px;
+}
+footer h3{color:white;margin-bottom:15px}
+footer p{margin:8px 0;color:#b9c3d1;font-size:14px}
+.copyright{
+ border-top:1px solid #ffffff22;
+ margin-top:30px;
+ padding-top:20px;
+ text-align:center;
 }
 
-.modal-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:25px;
-}
-
-.modal-image{
-  min-height:350px;
-  border-radius:17px;
-  background:
-    radial-gradient(circle,rgba(118,87,255,.25),transparent 55%),
-    #090b12;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:100px;
-}
-
-.modal-info h2{
-  font-family:Orbitron;
-  margin-bottom:10px;
-}
-
-.modal-info p{
-  color:var(--muted);
-  line-height:1.8;
-  font-size:13px;
-}
-
-.modal-price{
-  font-family:Orbitron;
-  font-size:25px;
-  margin:25px 0;
-}
-
-/* ================= TOAST ================= */
-
+/* TOAST */
 .toast{
-  position:fixed;
-  left:50%;
-  bottom:25px;
-  transform:translate(-50%,100px);
-  padding:13px 20px;
-  background:#171a25;
-  border:1px solid var(--line);
-  border-radius:10px;
-  z-index:6000;
-  font-size:12px;
-  transition:.35s;
-  box-shadow:0 15px 40px rgba(0,0,0,.4);
+ position:fixed;
+ bottom:25px;
+ left:50%;
+ transform:translateX(-50%) translateY(100px);
+ background:#111827;
+ color:white;
+ padding:13px 22px;
+ border-radius:8px;
+ z-index:5000;
+ opacity:0;
+ transition:.3s;
 }
-
 .toast.show{
-  transform:translate(-50%,0);
+ opacity:1;
+ transform:translateX(-50%) translateY(0);
 }
 
-/* ================= MOBILE ================= */
-
-@media(max-width:1000px){
-
-  .header-main{
-    flex-wrap:wrap;
-  }
-
-  .logo{
-    min-width:auto;
-  }
-
-  .search-box{
-    order:3;
-    flex-basis:100%;
-    max-width:none;
-  }
-
-  .hero-card{
-    grid-template-columns:1fr;
-    padding:45px 30px;
-  }
-
-  .hero-3d{
-    height:330px;
-  }
-
-  .category-grid{
-    grid-template-columns:repeat(3,1fr);
-  }
-
-  .products{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .trust-grid{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .footer-inner{
-    grid-template-columns:1fr 1fr;
-  }
+/* RESPONSIVE */
+@media(max-width:1100px){
+ .categories{grid-template-columns:repeat(5,1fr)}
+ .products{grid-template-columns:repeat(4,1fr)}
+ .brands{grid-template-columns:repeat(4,1fr)}
 }
-
-@media(max-width:600px){
-
-  .top-strip{
-    font-size:9px;
-  }
-
-  .header-main{
-    padding:9px 12px;
-    gap:10px;
-  }
-
-  .logo{
-    font-size:16px;
-  }
-
-  .header-btn{
-    min-width:40px;
-    height:40px;
-  }
-
-  .nav-inner{
-    padding:0 12px;
-    gap:18px;
-  }
-
-  .hero{
-    padding:15px 12px;
-  }
-
-  .hero-card{
-    min-height:auto;
-    padding:35px 20px;
-    border-radius:18px;
-  }
-
-  .hero h1{
-    font-size:40px;
-  }
-
-  .hero-3d{
-    transform:scale(.72);
-    margin:-30px 0;
-  }
-
-  .section{
-    padding:45px 12px 10px;
-  }
-
-  .category-grid{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .products{
-    grid-template-columns:1fr;
-  }
-
-  .trust-grid{
-    grid-template-columns:1fr;
-  }
-
-  .deal{
-    display:block;
-  }
-
-  .deal .btn{
-    margin-top:18px;
-  }
-
-  .footer-inner{
-    grid-template-columns:1fr 1fr;
-    gap:25px;
-  }
-
-  .footer-brand{
-    grid-column:1/-1;
-  }
-
-  .modal-grid{
-    grid-template-columns:1fr;
-  }
-
-  .modal-image{
-    min-height:230px;
-  }
+@media(max-width:800px){
+ .top{display:none}
+ .header{flex-wrap:wrap;padding:10px 3%}
+ .logo{font-size:22px}
+ .search{order:3;flex-basis:100%}
+ .head-actions{margin-left:auto;gap:12px;font-size:12px}
+ .nav{padding:12px 3%;gap:18px}
+ .hero{margin:12px 3%;height:260px;padding:25px}
+ .hero h1{font-size:32px}
+ .hero-products{font-size:80px}
+ .section{margin:12px 3%;padding:15px}
+ .products{grid-template-columns:repeat(2,1fr);gap:10px}
+ .product-img{height:160px;font-size:65px}
+ .categories{grid-template-columns:repeat(5,1fr);gap:5px}
+ .cat-icon{width:50px;height:50px;font-size:23px}
+ .cat{font-size:11px}
+ .deal{grid-template-columns:1fr}
+ .brands{grid-template-columns:repeat(3,1fr)}
+ .offers{grid-template-columns:repeat(2,1fr)}
+ .product-detail{grid-template-columns:1fr}
+ .detail-image{height:280px}
+ .footer-grid{grid-template-columns:repeat(2,1fr)}
 }
 </style>
 </head>
 
 <body>
 
-<!-- TOP -->
-<div class="top-strip">
-  ⚡ PREMIUM GAMING STORE • NEW ITEMS EVERY WEEK • 24/7 ACCESS
+<div class="top">
+ <div>
+  <span>🚚 Free delivery on selected orders</span>
+  <span>💳 Secure payments</span>
+ </div>
+ <div>
+  <span>Help Center</span>
+  <span>Become a Seller</span>
+ </div>
 </div>
 
-<!-- HEADER -->
-<header>
+<header class="header">
+ <div class="logo" onclick="goHome()" style="cursor:pointer">
+  MEGAMART
+  <small>SHOP • SAVE • SMILE</small>
+ </div>
 
-  <div class="header-main">
+ <div class="search">
+  <input id="searchInput" placeholder="Search for products, brands and more..." oninput="searchProducts()">
+  <button onclick="searchProducts()">🔍</button>
+ </div>
 
-    <div class="logo">
-      VIRK<span>•</span>GAMING
-    </div>
-
-    <div class="search-box">
-
-      <select id="categorySelect">
-        <option value="all">All</option>
-        <option value="Accounts">Accounts</option>
-        <option value="Items">Items</option>
-        <option value="UC">UC</option>
-        <option value="Offers">Offers</option>
-      </select>
-
-      <input
-        id="searchInput"
-        type="text"
-        placeholder="Search gaming items..."
-        oninput="renderProducts()"
-      >
-
-      <button class="search-btn" onclick="renderProducts()">
-        🔍
-      </button>
-
-    </div>
-
-    <div class="header-actions">
-
-      <button class="header-btn" onclick="showToast('Wishlist opened ❤️')">
-        ♡
-      </button>
-
-      <button class="header-btn" onclick="openCart()">
-        🛒
-        <span class="cart-count" id="cartCount">0</span>
-      </button>
-
-    </div>
-
-  </div>
-
-  <div class="nav-row">
-    <div class="nav-inner">
-      <a href="#home">Home</a>
-      <a href="#categories">Categories</a>
-      <a href="#deals">Today's Deals</a>
-      <a href="#shop">Gaming Store</a>
-      <a href="#trust">Why Us</a>
-      <a href="#faq">FAQ</a>
-    </div>
-  </div>
-
+ <div class="head-actions">
+  <div class="action" onclick="openAccount()">👤 Account</div>
+  <div class="action" onclick="showOrders()">📦 Orders</div>
+  <div class="action" onclick="openWishlist()">♡ Wishlist <span class="badge" id="wishCount">0</span></div>
+  <div class="action" onclick="openCart()">🛒 Cart <span class="badge" id="cartCount">0</span></div>
+ </div>
 </header>
 
-<!-- HERO -->
-<section class="hero" id="home">
+<nav class="nav">
+ <div onclick="filterCategory('All')">All</div>
+ <div onclick="filterCategory('Mobiles')">📱 Mobiles</div>
+ <div onclick="filterCategory('Electronics')">💻 Electronics</div>
+ <div onclick="filterCategory('Fashion')">👕 Fashion</div>
+ <div onclick="filterCategory('Beauty')">💄 Beauty</div>
+ <div onclick="filterCategory('Home')">🏠 Home</div>
+ <div onclick="filterCategory('Gaming')">🎮 Gaming</div>
+ <div onclick="filterCategory('Sports')">⚽ Sports</div>
+ <div onclick="filterCategory('Books')">📚 Books</div>
+ <div onclick="filterCategory('Grocery')">🛒 Grocery</div>
+ <div onclick="filterCategory('Toys')">🧸 Toys</div>
+</nav>
 
-  <div class="hero-card">
+<main>
 
-    <div class="hero-content">
+<section class="hero">
+ <div class="hero-content">
+  <h1>Big Shopping. Bigger Savings.</h1>
+  <p>Discover millions of products, amazing deals and your favourite brands in one place.</p>
+  <button class="btn" onclick="scrollToDeals()">SHOP NOW →</button>
+ </div>
+ <div class="hero-products">🛍️ 📱 👟 💻</div>
+</section>
 
-      <div class="hero-label">
-        🔥 VISA CARD 
-      </div>
+<section class="section">
+ <div class="section-head">
+  <h2>Shop By Category</h2>
+  <span class="view" onclick="filterCategory('All')">View All</span>
+ </div>
 
-      <h1>
-        YOUR GAME.<br>
-        YOUR <span>POWER.</span>
-      </h1>
+ <div class="categories">
+  <div class="cat" onclick="filterCategory('Mobiles')"><div class="cat-icon">📱</div>Mobiles</div>
+  <div class="cat" onclick="filterCategory('Electronics')"><div class="cat-icon">💻</div>Laptops</div>
+  <div class="cat" onclick="filterCategory('Fashion')"><div class="cat-icon">👕</div>Fashion</div>
+  <div class="cat" onclick="filterCategory('Shoes')"><div class="cat-icon">👟</div>Footwear</div>
+  <div class="cat" onclick="filterCategory('Beauty')"><div class="cat-icon">💄</div>Beauty</div>
+  <div class="cat" onclick="filterCategory('Home')"><div class="cat-icon">🛋️</div>Furniture</div>
+  <div class="cat" onclick="filterCategory('Gaming')"><div class="cat-icon">🎮</div>Gaming</div>
+  <div class="cat" onclick="filterCategory('Sports')"><div class="cat-icon">🏏</div>Sports</div>
+  <div class="cat" onclick="filterCategory('Books')"><div class="cat-icon">📚</div>Books</div>
+  <div class="cat" onclick="filterCategory('Grocery')"><div class="cat-icon">🥦</div>Grocery</div>
+ </div>
+</section>
 
-      <p>
-        Discover premium gaming products with a futuristic
-        shopping experience. Browse collections, compare
-        products and build your ultimate gaming setup.
-      </p>
+<section class="section" id="deals">
+ <div class="deal">
+  <div class="deal-banner">
+   <h2>⚡ Flash Sale</h2>
+   <p>Hurry! Deals ending soon.</p>
 
-      <div class="hero-buttons">
+   <div class="countdown">
+    <div class="time"><span id="hh">05</span><small> H</small></div>
+    <div class="time"><span id="mm">32</span><small> M</small></div>
+    <div class="time"><span id="ss">48</span><small> S</small></div>
+   </div>
 
-        <button
-          class="btn primary"
-          onclick="document.getElementById('shop').scrollIntoView()">
-          SHOP NOW →
-        </button>
-
-        <button
-          class="btn secondary"
-          onclick="document.getElementById('deals').scrollIntoView()">
-          🔥 TODAY'S DEALS
-        </button>
-
-      </div>
-
-    </div>
-
-    <div class="hero-3d">
-
-      <div class="orbit"></div>
-      <div class="orbit orbit2"></div>
-
-      <div class="cube">
-
-        <div class="face front">🎮</div>
-        <div class="face back">⚡</div>
-        <div class="face right">💎</div>
-        <div class="face left">🔥</div>
-        <div class="face top">👑</div>
-        <div class="face bottom">🎁</div>
-
+   <button class="btn white" onclick="filterCategory('All')">VIEW DEALS</button>
   </div>
-  
+
+  <div class="products" id="dealProducts"></div>
+ </div>
+</section>
+
+<section class="section">
+ <div class="section-head">
+  <h2>🔥 Trending Products</h2>
+  <span class="view">Explore</span>
+ </div>
+ <div class="filterbar">
+  <select onchange="sortProducts(this.value)">
+   <option value="default">Sort: Recommended</option>
+   <option value="low">Price: Low to High</option>
+   <option value="high">Price: High to Low</option>
+   <option value="rating">Top Rated</option>
+  </select>
+
+  <select onchange="filterCategory(this.value)">
+   <option value="All">All Categories</option>
+   <option>Mobiles</option>
+   <option>Electronics</option>
+   <option>Fashion</option>
+   <option>Beauty</option>
+   <option>Home</option>
+   <option>Gaming</option>
+   <option>Sports</option>
+   <option>Books</option>
+   <option>Grocery</option>
+  </select>
+
+  <input id="minPrice" type="number" placeholder="Min ₹" oninput="applyFilters()">
+  <input id="maxPrice" type="number" placeholder="Max ₹" oninput="applyFilters()">
+ </div>
+
+ <div class="products" id="productGrid"></div>
+</section>
+
+<section class="section">
+ <div class="section-head">
+  <h2>🏷️ Top Brands</h2>
+  <span class="view">View All</span>
+ </div>
+ <div class="brands">
+  <div class="brand">APPLE</div>
+  <div class="brand">SAMSUNG</div>
+  <div class="brand">NIKE</div>
+  <div class="brand">ADIDAS</div>
+  <div class="brand">SONY</div>
+  <div class="brand">LG</div>
+  <div class="brand">PUMA</div>
+  <div class="brand">HP</div>
+  <div class="brand">DELL</div>
+  <div class="brand">BOAT</div>
+  <div class="brand">ONEPLUS</div>
+  <div class="brand">LEVI'S</div>
+ </div>
+</section>
+
+<section class="section">
+ <div class="section-head">
+  <h2>💥 Special Offers</h2>
+ </div>
+
+ <div class="offers">
+  <div class="offer">
+   <h3>💳 Bank Offers</h3>
+   <p>Save more with selected payment offers.</p>
+  </div>
+  <div class="offer">
+   <h3>🎁 New User</h3>
+   <p>Special welcome offers for new shoppers.</p>
+  </div>
+  <div class="offer">
+   <h3>🚚 Free Delivery</h3>
+   <p>Free delivery on eligible products.</p>
+  </div>
+  <div class="offer">
+   <h3>⭐ Rewards</h3>
+   <p>Collect points while shopping.</p>
+  </div>
+ </div>
+</section>
+
+<section class="section">
+ <div class="section-head">
+  <h2>✨ New Arrivals</h2>
+ </div>
+ <div class="products" id="newProducts"></div>
+</section>
+
+</main>
+
+<!-- CART -->
+<div class="overlay" id="cartOverlay">
+ <div class="drawer">
+  <div class="drawer-head">
+   <h2>🛒 Your Cart</h2>
+   <button class="close" onclick="closeCart()">✕</button>
+  </div>
+  <div id="cartItems"></div>
+  <div class="total">
+   <span>Total</span>
+   <span id="cartTotal">₹0</span>
+  </div>
+  <button class="btn blue full" onclick="checkout()">Proceed to Checkout</button>
+ </div>
+</div>
+
+<!-- PRODUCT MODAL -->
+<div class="modal-bg" id="productModal">
+ <div class="modal">
+  <div class="modal-head">
+   <h2>Product Details</h2>
+   <button class="close" onclick="closeProduct()">✕</button>
+  </div>
+  <div id="productDetail"></div>
+ </div>
+</div>
+
+<!-- ACCOUNT MODAL -->
+<div class="modal-bg" id="accountModal">
+ <div class="modal" style="max-width:500px">
+  <div class="modal-head">
+   <h2>👤 My Account</h2>
+   <button class="close" onclick="closeAccount()">✕</button>
+  </div>
+
+  <div style="text-align:center;padding:20px">
+   <div style="font-size:70px">👤</div>
+   <h2>Welcome Shopper!</h2>
+   <p style="margin:10px;color:#666">Sign in to access your orders, wishlist and offers.</p>
+
+   <input id="loginName" placeholder="Enter your name"
+    style="width:100%;padding:13px;border:1px solid #ddd;border-radius:7px;margin:10px 0">
+
+   <input placeholder="Email / Mobile"
+    style="width:100%;padding:13px;border:1px solid #ddd;border-radius:7px;margin:10px 0">
+
+   <button class="btn blue full" onclick="login()">Continue</button>
+  </div>
+ </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<footer>
+ <div class="footer-grid">
+  <div>
+   <h3>MEGAMART</h3>
+   <p>Your all-in-one shopping destination.</p>
+   <p>Millions of products and amazing deals.</p>
+  </div>
+
+  <div>
+   <h3>Shop</h3>
+   <p>Mobiles</p>
+   <p>Electronics</p>
+   <p>Fashion</p>
+   <p>Home</p>
+   <p>Beauty</p>
+  </div>
+
+  <div>
+   <h3>Customer Care</h3>
+   <p>Help Center</p>
+   <p>Track Order</p>
+   <p>Returns</p>
+   <p>Refunds</p>
+   <p>Contact Us</p>
+  </div>
+
+  <div>
+   <h3>Sell With Us</h3>
+   <p>Become a Seller</p>
+   <p>Seller Dashboard</p>
+   <p>Seller Policies</p>
+   <p>Seller Support</p>
+  </div>
+
+  <div>
+   <h3>Legal</h3>
+   <p>Terms</p>
+   <p>Privacy</p>
+   <p>Shipping Policy</p>
+   <p>Refund Policy</p>
+  </div>
+ </div>
+
+ <div class="copyright">
+  © 2026 MEGAMART — All rights reserved.
+ </div>
+</footer>
+
+<script>
+/* =========================
+   PRODUCT DATABASE
+========================= */
+
+const products=[
+ {id:1,name:"Premium Smartphone 5G",cat:"Mobiles",price:24999,old:29999,rating:4.6,icon:"📱",tag:"HOT"},
+ {id:2,name:"Flagship Smartphone Pro",cat:"Mobiles",price:49999,old:59999,rating:4.8,icon:"📱",tag:"SALE"},
+ {id:3,name:"Wireless Earbuds Pro",cat:"Electronics",price:1999,old:3999,rating:4.4,icon:"🎧",tag:"DEAL"},
+ {id:4,name:"Ultra HD Smart TV",cat:"Electronics",price:32999,old:44999,rating:4.5,icon:"📺",tag:"HOT"},
+ {id:5,name:"Gaming Laptop 16GB RAM",cat:"Electronics",price:74999,old:89999,rating:4.7,icon:"💻",tag:"BEST"},
+ {id:6,name:"Everyday Cotton T-Shirt",cat:"Fashion",price:599,old:999,rating:4.2,icon:"👕",tag:"SALE"},
+ {id:7,name:"Premium Running Shoes",cat:"Shoes",price:2499,old:4999,rating:4.5,icon:"👟",tag:"HOT"},
+ {id:8,name:"Classic Denim Jacket",cat:"Fashion",price:1799,old:2999,rating:4.3,icon:"🧥",tag:""},
+ {id:9,name:"Smart Watch Series X",cat:"Electronics",price:2999,old:5999,rating:4.4,icon:"⌚",tag:"DEAL"},
+ {id:10,name:"Mechanical Gaming Keyboard",cat:"Gaming",price:3499,old:5999,rating:4.7,icon:"⌨️",tag:"BEST"},
+ {id:11,name:"Gaming Mouse RGB",cat:"Gaming",price:1299,old:2499,rating:4.6,icon:"🖱️",tag:"SALE"},
+ {id:12,name:"Wireless Game Controller",cat:"Gaming",price:2499,old:3999,rating:4.5,icon:"🎮",tag:"HOT"},
+ {id:13,name:"Skincare Essentials Kit",cat:"Beauty",price:899,old:1499,rating:4.3,icon:"🧴",tag:""},
+ {id:14,name:"Premium Face Care Set",cat:"Beauty",price:1299,old:1999,rating:4.4,icon:"🧖",tag:"SALE"},
+ {id:15,name:"Modern Office Chair",cat:"Home",price:6999,old:9999,rating:4.5,icon:"🪑",tag:"BEST"},
+ {id:16,name:"LED Study Lamp",cat:"Home",price:799,old:1299,rating:4.2,icon:"💡",tag:""},
+ {id:17,name:"Non-Stick Cookware Set",cat:"Home",price:2499,old:3999,rating:4.4,icon:"🍳",tag:"DEAL"},
+ {id:18,name:"Cricket Bat Premium",cat:"Sports",price:4999,old:6999,rating:4.7,icon:"🏏",tag:"HOT"},
+ {id:19,name:"Football Training Ball",cat:"Sports",price:999,old:1499,rating:4.3,icon:"⚽",tag:""},
+ {id:20,name:"Best Selling Novel",cat:"Books",price:399,old:599,rating:4.8,icon:"📚",tag:"BEST"},
+ {id:21,name:"Business & Finance Book",cat:"Books",price:599,old:899,rating:4.6,icon:"📖",tag:""},
+ {id:22,name:"Organic Grocery Pack",cat:"Grocery",price:1199,old:1499,rating:4.5,icon:"🥦",tag:""},
+ {id:23,name:"Premium Coffee Pack",cat:"Grocery",price:699,old:899,rating:4.7,icon:"☕",tag:"HOT"},
+ {id:24,name:"Kids Educational Toy",cat:"Toys",price:899,old:1299,rating:4.4,icon:"🧸",tag:"SALE"},
+ {id:25,name:"Building Blocks Set",cat:"Toys",price:699,old:999,rating:4.6,icon:"🧱",tag:""},
+ {id:26,name:"Air Purifier",cat:"Home",price:8999,old:11999,rating:4.5,icon:"🌬️",tag:"BEST"},
+ {id:27,name:"Portable Bluetooth Speaker",cat:"Electronics",price:1599,old:2999,rating:4.4,icon:"🔊",tag:"DEAL"},
+ {id:28,name:"Designer Handbag",cat:"Fashion",price:2299,old:3999,rating:4.5,icon:"👜",tag:"HOT"},
+ {id:29,name:"Sports Backpack",cat:"Sports",price:1199,old:1999,rating:4.3,icon:"🎒",tag:""},
+ {id:30,name:"Premium Sunglasses",cat:"Fashion",price:1499,old:2499,rating:4.2,icon:"🕶️",tag:"SALE"}
+];
+
+let cart=JSON.parse(localStorage.getItem("megaCart")||"[]");
+let wishlist=JSON.parse(localStorage.getItem("megaWish")||"[]");
+let currentProducts=[...products];
+
+/* =========================
+   HELPERS
+========================= */
+
+function money(n){
+ return "₹"+n.toLocaleString("en-IN");
+}
+
+function save(){
+ localStorage.setItem("megaCart",JSON.stringify(cart));
+ localStorage.setItem("megaWish",JSON.stringify(wishlist));
+ updateCounts();
+}
+
+function toast(msg){
+ const t=document.getElementById("toast");
+ t.textContent=msg;
+ t.classList.add("show");
+ setTimeout(()=>t.classList.remove("show"),2200);
+}
+
+/* =========================
+   PRODUCT CARD
+========================= */
+
+function productCard(p){
+ const inWish=wishlist.includes(p.id);
+ const discount=Math.round((1-p.price/p.old)*100);
+
+ return `
+ <div class="product">
+  ${p.tag?`<div class="quick">${p.tag}</div>`:""}
+  <button class="wish" onclick="toggleWish(${p.id})">
+   ${inWish?"❤️":"♡"}
+  </button>
+
+  <div class="product-img" onclick="openProduct(${p.id})">
+   ${p.icon}
+  </div>
+
+  <div class="product-body">
+   <div class="product-title">${p.name}</div>
+   <span class="rating">★ ${p.rating}</span>
+   <div>
+    <span class="price">${money(p.price)}</span>
+    <span class="old">${money(p.old)}</span>
+   </div>
+   <span class="discount">${discount}% off</span>
+
+   <button class="btn blue full" onclick="addCart(${p.id})">
+    Add to Cart
+   </button>
+ </div>
+ </div>`;
+}
+
+function render(list=currentProducts){
+ const grid=document.getElementById("productGrid");
+ grid.innerHTML=list.length
+  ?list.map(productCard).join("")
+  :`<div style="grid-column:1/-1;text-align:center;padding:50px">No products found 😔</div>`;
+}
+
+/* =========================
+   DEALS
+========================= */
+
+function renderDeals(){
+ document.getElementById("dealProducts").innerHTML=
+ products.slice(0,4).map(productCard).join("");
+ document.getElementById("newProducts").innerHTML=
+ products.slice(-5).map(productCard).join("");
+}
+
+/* =========================
+   CART
+========================= */
+
+function addCart(id){
+ const found=cart.find(x=>x.id===id);
+ if(found) found.qty++;
+ else cart.push({id,qty:1});
+ save();
+ toast("Added to cart 🛒");
+}
+
+function changeQty(id,amount){
+ const item=cart.find(x=>x.id===id);
+ if(!item)return;
+ item.qty+=amount;
+ if(item.qty<=0)cart=cart.filter(x=>x.id!==id);
+ save();
+ renderCart();
+}
+
+function renderCart(){
+ const box=document.getElementById("cartItems");
+
+ if(!cart.length){
+  box.innerHTML=`
+   <div style="text-align:center;padding:70px 20px">
+    <div style="font-size:70px">🛒</div>
+    <h2>Your cart is empty</h2>
+    <p style="color:#777;margin-top:10px">Add some products to get started.</p>
+   </div>`;
+  document.getElementById("cartTotal").textContent="₹0";
+  return;
+ }
+
+ let total=0;
+
+ box.innerHTML=cart.map(item=>{
+  const p=products.find(x=>x.id===item.id);
+  total+=p.price*item.qty;
+
+  return `
+  <div class="cart-item">
+   <div class="cart-img">${p.icon}</div>
+   <div style="flex:1">
+    <b>${p.name}</b>
+    <div style="margin-top:5px">${money(p.price)}</div>
+    <div class="qty">
+     <button onclick="changeQty(${p.id},-1)">−</button>
+     <span>${item.qty}</span>
+     <button onclick="changeQty(${p.id},1)">+</button>
+    </div>
+   </div>
+   <button onclick="removeCart(${p.id})">🗑️</button>
+  </div>`;
+ }).join("");
+
+ document.getElementById("cartTotal").textContent=money(total);
+}
+
+function removeCart(id){
+ cart=cart.filter(x=>x.id!==id);
+ save();
+ renderCart();
+ toast("Removed from cart");
+}
+
+function openCart(){
+ renderCart();
+ document.getElementById("cartOverlay").classList.add("show");
+}
+
+function closeCart(){
+ document.getElementById("cartOverlay").classList.remove("show");
+}
+
+function checkout(){
+ if(!cart.length){
+  toast("Your cart is empty");
+  return;
+ }
+ closeCart();
+ toast("Checkout demo opened — connect payment/backend here.");
+}
+
+/* =========================
+   WISHLIST
+========================= */
+
+function toggleWish(id){
+ if(wishlist.includes(id)){
+  wishlist=wishlist.filter(x=>x!==id);
+  toast("Removed from wishlist");
+ }else{
+  wishlist.push(id);
+  toast("Added to wishlist ❤️");
+ }
+ save();
+ render(currentProducts);
+ renderDeals();
+}
+
+function openWishlist(){
+ if(!wishlist.length){
+  toast("Wishlist is empty");
+  return;
+ }
+
+ const list=products.filter(p=>wishlist.includes(p.id));
+ currentProducts=list;
+ render(list);
+ window.scrollTo({top:document.querySelector(".section").offsetTop-80,behavior:"smooth"});
+}
+
+/* =========================
+   PRODUCT DETAIL
+========================= */
+
+function openProduct(id){
+ const p=products.find(x=>x.id===id);
+ if(!p)return;
+
+ document.getElementById("productDetail").innerHTML=`
+ <div class="product-detail">
+  <div class="detail-image">${p.icon}</div>
+
+  <div class="detail">
+   <h1>${p.name}</h1>
+   <span class="rating">★ ${p.rating}</span>
+
+   <p style="color:#666;margin-top:15px">
+    Premium quality product with fast delivery and easy returns.
+   </p>
+
+   <div class="detail-price">${money(p.price)}</div>
+   <span class="old">${money(p.old)}</span>
+   <span class="discount">
+    ${Math.round((1-p.price/p.old)*100)}% OFF
+   </span>
+
+   <div style="margin-top:20px">
+    <b>Highlights</b>
+    <ul style="margin:10px 0 0 20px;line-height:2">
+     <li>Quality checked product</li>
+     <li>Secure packaging</li>
+     <li>Easy return policy</li>
+     <li>Fast delivery available</li>
+    </ul>
+   </div>
+
+   <div class="quantity">
+    <b>Quantity</b>
+    <button onclick="detailQty(-1)">−</button>
+    <span id="detailQty">1</span>
+    <button onclick="detailQty(1)">+</button>
+   </div>
+
+   <div class="detail-actions">
+    <button class="btn blue" onclick="addDetailCart(${p.id})">
+     🛒 Add To Cart
+    </button>
+    <button class="btn" onclick="buyNow(${p.id})">
+     Buy Now
+    </button>
+   </div>
+  </div>
+ </div>`;
+
+ document.getElementById("productModal").classList.add("show");
+}
+
+let detailQuantity=1;
+
+function detailQty(n){
+ detailQuantity=Math.max(1,detailQuantity+n);
+ document.getElementById("detailQty").textContent=detailQuantity;
+}
+
+function addDetailCart(id){
+ for(let i=0;i<detailQuantity;i++)addCart(id);
+ detailQuantity=1;
+ closeProduct();
+}
+
+function buyNow(id){
+ addCart(id);
+ closeProduct();
+ openCart();
+}
+
+function closeProduct(){
+ document.getElementById("productModal").classList.remove("show");
+ detailQuantity=1;
+}
+
+/* =========================
+   SEARCH / FILTER
+========================= */
+
+function searchProducts(){
+ const q=document.getElementById("searchInput").value.toLowerCase().trim();
+
+ currentProducts=products.filter(p=>
+  (p.name+" "+p.cat).toLowerCase().includes(q)
+ );
+
+ applyFilters(false);
+}
+
+function filterCategory(cat){
+ document.getElementById("searchInput").value="";
+ currentProducts=cat==="All"
+  ?[...products]
+  :products.filter(p=>p.cat===cat);
+
+ render(currentProducts);
+
+ window.scrollTo({
+  top:document.getElementById("productGrid").offsetTop-130,
+  behavior:"smooth"
+ });
+}
+
+function applyFilters(keepSearch=true){
+ let list=[...currentProducts];
+
+ if(keepSearch){
+  const q=document.getElementById("searchInput").value.toLowerCase();
+  if(q)list=list.filter(p=>(p.name+" "+p.cat).toLowerCase().includes(q));
+ }
+
+ const min=Number(document.getElementById("minPrice").value)||0;
+ const max=Number(document.getElementById("maxPrice").value)||Infinity;
+
+ list=list.filter(p=>p.price>=min&&p.price<=max);
+ render(list);
+}
+
+function sortProducts(type){
+ let list=[...currentProducts];
+
+ if(type==="low")list.sort((a,b)=>a.price-b.price);
+ if(type==="high")list.sort((a,b)=>b.price-a.price);
+ if(type==="rating")list.sort((a,b)=>b.rating-a.rating);
+
+ render(list);
+}
+
+/* =========================
+   ACCOUNT / ORDERS
+========================= */
+
+function openAccount(){
+ document.getElementById("accountModal").classList.add("show");
+}
+
+function closeAccount(){
+ document.getElementById("accountModal").classList.remove("show");
+}
+
+function login(){
+ const name=document.getElementById("loginName").value.trim();
+ if(!name){
+  toast("Please enter your name");
+  return;
+ }
+ localStorage.setItem("megaUser",name);
+ closeAccount();
+ toast("Welcome, "+name+" 👋");
+}
+
+function showOrders(){
+ toast("Order history demo — backend can be connected.");
+}
+
+/* =========================
+   COUNTERS
+========================= */
+
+function updateCounts(){
+ const count=cart.reduce((sum,x)=>sum+x.qty,0);
+ document.getElementById("cartCount").textContent=count;
+ document.getElementById("wishCount").textContent=wishlist.length;
+}
+
+/* =========================
+   HERO
+========================= */
+
+function scrollToDeals(){
+ document.getElementById("deals").scrollIntoView({behavior:"smooth"});
+}
+
+function goHome(){
+ window.scrollTo({top:0,behavior:"smooth"});
+}
+
+/* =========================
+   COUNTDOWN
+========================= */
+
+let seconds=5*3600+32*60+48;
+
+setInterval(()=>{
+ if(seconds<=0)seconds=5*3600+32*60+48;
+
+ seconds--;
+
+ const h=Math.floor(seconds/3600);
+ const m=Math.floor((seconds%3600)/60);
+ const s=seconds%60;
+
+ document.getElementById("hh").textContent=String(h).padStart(2,"0");
+ document.getElementById("mm").textContent=String(m).padStart(2,"0");
+ document.getElementById("ss").textContent=String(s).padStart(2,"0");
+},1000);
+
+/* =========================
+   INITIALIZE
+========================= */
+
+render();
+renderDeals();
+updateCounts();
+
+/* close modals by clicking background */
+document.getElementById("productModal").addEventListener("click",e=>{
+ if(e.target.id==="productModal")closeProduct();
+});
+
+document.getElementById("accountModal").addEventListener("click",e=>{
+ if(e.target.id==="accountModal")closeAccount();
+});
+
+document.getElementById("cartOverlay").addEventListener("click",e=>{
+ if(e.target.id==="cartOverlay")closeCart();
+});
+</script>
+
+</body>
+</html>
+```
